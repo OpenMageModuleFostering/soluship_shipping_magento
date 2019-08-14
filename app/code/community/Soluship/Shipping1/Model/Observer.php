@@ -73,7 +73,7 @@ $ShippingMethod=array(
               $obj->grandTotal=$order->getGrandTotal();
               $obj->shipping_method=$ShippingMethod;
 
-
+ $obj->recreate          =false;
              $obj->ShippingAddress=$ShippingAddress;
               $obj->id=$_orderId;
               $obj->shippingPackage=$this->createOrderItems($order);

@@ -15,13 +15,13 @@ class Soluship_Shipping1_Model_Sales_Order_View  extends Mage_Adminhtml_Block_Sa
  if($this->getOrder()->getStatusLabel()!="Canceled"){
   
  
-
- $this->_addButton('testbutton', array(
+/*
+ $this->_addButton('testbutton11', array(
             'label'     => Mage::helper('Sales')->__('Soluship Print Label'),
             'onclick'   => 'setLocation(\'' . $url . '\')',
             'class'     => 'go'
         ), 0, 100, 'header', 'header');
-
+*/
  
 
      

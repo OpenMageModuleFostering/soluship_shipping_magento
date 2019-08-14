@@ -77,6 +77,22 @@ $block->addButton('do_something_crazy', array(
                 'onclick'   => 'popWin(\'' . $tracking_url . '\')',
                 'class'     => 'go'
             )); 
+ $url11=$carriers['soluship_shipping1']['shippingserver']."/ecomPrintLabel.action?SolushipAccessKey=".$carriers['soluship_shipping1']['solushipaccesstoekn']."&ids=".$order->entity_id."&ecomplatform=magento";
+
+$block->addButton('do_something_craz1y', array(
+                'label'     => 'Soluship Print Label',
+                'onclick'   => 'popWin(\'' . $url11 . '\')',
+                'class'     => 'go'
+            )); 
+
+
+     
+/*
+     $block->addButton('solushippl', array(
+            'label'     => Mage::helper('Sales')->__('Soluship Print Label'),
+            'onclick'   => 'setLocation(\'' . $url . '\')',
+            'class'     => 'go'
+        ), 0, 100, 'header', 'header');*/
 
 
  
@@ -96,8 +112,16 @@ $block->addButton('do_something_crazy1', array(
                 'onclick'   => 'popWin(\'' . $url1 . '\')',
                 'class'     => 'go'
             )); 
+
+ if($order->getStatusLabel()!="Canceled"){
+
+
+ $message="Do want to Create Shipping Order in Soluship ?.";
+ $block->addButton('in_shipment', 
+            array( 'label' => Mage::helper('sales')->__('Create Shipping Order'), 
+                'onclick' => "popWin(confirmSetLocation('{$message}', '{$block->getUrl('shipping1/adminhtml_index/shipment')}'))", 'class' => 'go' ));  
  
-                      
+               }        
         }
     }
  

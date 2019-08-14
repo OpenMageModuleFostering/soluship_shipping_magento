@@ -70,7 +70,7 @@
 
   
 
-  <!--    <admin>
+     <admin>
 <routers>
 <adminhtml>
 <args>
@@ -82,7 +82,7 @@
 </adminhtml>
 </routers>
 </admin>
- -->
+  
  <frontend>
         
         <routers>
