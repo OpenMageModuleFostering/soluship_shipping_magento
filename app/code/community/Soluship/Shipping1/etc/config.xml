@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Soluship_Shipping1>
+      <version>1.0</version>
+    </Soluship_Shipping1>
+  </modules>
+  <global>
+    <models>
+      <soluship_shipping1>
+        <class>Soluship_Shipping1_Model</class>
+      </soluship_shipping1>
+    </models>
+    <helpers>
+      <soluship_shipping1>
+        <class>Soluship_Shipping1_Helper_Data</class>
+      </soluship_shipping1>
+    </helpers>
+
+
+<events> 
+
+
+<checkout_onepage_controller_success_action>
+       <observers>
+         <postDataTosServer>
+             <type>singleton</type>  
+              <class>Soluship_Shipping1_Model_Observer</class>
+              <method>automaticallyInvoiceShipCompleteOrder</method>
+        </postDataTosServer>
+      </observers>
+     </checkout_onepage_controller_success_action>
+  
+  <sales_order_save_commit_after>
+            <observers>
+                <Ylli_Cancelemail_Model_Observer>
+                    <type>singleton</type>
+                    <class>Soluship_Shipping1_Model_Observer</class>
+                    <method>cancelshipment</method>
+                </Ylli_Cancelemail_Model_Observer>
+            </observers>
+        </sales_order_save_commit_after>
+ 
+        </events>  
+
+
+          <blocks>
+        <adminhtml>
+            <rewrite>
+                <sales_order_grid>Soluship_Shipping1_Model_Sales_Order_Grid</sales_order_grid>
+            </rewrite>
+             <rewrite>
+        <sales_order_view>Soluship_Shipping1_Model_Sales_Order_View</sales_order_view>
+
+        <!--  <sales_order_view>Soluship_Shipping1_Model_Sales_Order_ViewRecreate</sales_order_view> -->
+        <!--   <sales_order_view>Soluship_Shipping1_Model_Sales_Order_ViewTrack</sales_order_view> -->
+      </rewrite>
+
+          </adminhtml>
+ 
+
+    </blocks> 
+  
+  
+
+  
+        
+  </global>
+
+
+  
+
+  <!--    <admin>
+<routers>
+<adminhtml>
+<args>
+<modules>
+<Soluship_Shipping1 before="Mage_Adminhtml">Soluship_Shipping1</Soluship_Shipping1>
+ <frontname>shipping1</frontname>
+</modules>
+</args>
+</adminhtml>
+</routers>
+</admin>
+ -->
+ <frontend>
+        
+        <routers>
+            <Soluship_Shipping1>
+                <use>standard</use>
+                <args>
+                    <module>Soluship_Shipping1</module>
+                    <frontName>shipping1</frontName>
+                </args>
+            </Soluship_Shipping1>
+        </routers>
+      
+    </frontend>
+
+  <adminhtml>
+        <events>
+          
+            <adminhtml_widget_container_html_before>
+                <observers>
+                    <keyup_massshipment_core_block_abstract_prepare_layout_before1>
+                        <class>soluship_shipping1/observer1</class>
+                        <method>trackUpdate</method>
+                    </keyup_massshipment_core_block_abstract_prepare_layout_before1>
+                </observers>
+            </adminhtml_widget_container_html_before>
+        </events>
+    
+
+
+    </adminhtml>
+ 
+<default>
+   <carriers>
+ <soluship_shipping1>
+                <active>0</active>
+                <model>soluship_shipping1/demo</model>
+                <allowed_methods></allowed_methods>
+                <weight_unit>g</weight_unit>
+                <rounding_rule>none</rounding_rule>
+                <google_checkout_compatible>0</google_checkout_compatible>
+                <name>soluship_shipping1</name>
+                <title>soluship_shipping1</title>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>GB</specificcountry>
+                <showmethod>0</showmethod>
+                <sort_order>0</sort_order>
+                <parcel_size>small</parcel_size>
+            </soluship_shipping1>
+             </carriers> 
+  </default>
+
+ 
+
+</config>

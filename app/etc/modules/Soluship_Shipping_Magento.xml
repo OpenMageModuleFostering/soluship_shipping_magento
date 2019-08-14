@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Soluship_Shipping1>
+      <active>true</active>
+      <codePool>community</codePool>
+      <depends>
+        <Mage_Shipping />
+      </depends>
+    </Soluship_Shipping1>
+  </modules>
+</config>
