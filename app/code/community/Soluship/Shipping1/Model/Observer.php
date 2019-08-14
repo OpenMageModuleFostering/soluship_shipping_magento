@@ -29,7 +29,9 @@ $shipment=$converter->toShipment($order);
             $obj=new Soluship_Shipping1_Model_Observer();
 
             $billingaddress1=$order->getBillingAddress();
-            $billingaddress =    array( 'customerName'=>$order->getData('customer_firstname'),
+             
+             $billingaddress =    array( 'customerName'=>$order->getData('firstname'),
+                            'lastName'=>$order->getData('lastname'),
                             'companyName'=>$billingaddress1->getData('company'),
                             'telephone'=>  $billingaddress1->getData('telephone'),
                             'email'=> $billingaddress1->getData('email'),
@@ -44,8 +46,10 @@ $shipment=$converter->toShipment($order);
 
 
 
-$ShippingAddress=array(  
+ $ShippingAddress=array(  
                             'companyName'=>$shipaddress->getData('company'),
+                            'customerName'=>$shipaddress->getData('firstname'),
+                            'lastName'=>$shipaddress->getData('lastname'),
                             'telephone'=>  $shipaddress->getData('telephone'),
                             'email'=> $shipaddress->getData('email'),
                             'street'=> $shipaddress->getData('street'),
@@ -116,6 +120,11 @@ $client->setRawData($json, 'application/json');
    public function createOrderItems($order)
     {
       
+$carriers=Mage::getStoreConfig('carriers');
+      $lenghtc=$carriers['soluship_shipping1']['length_attribute'];
+$heightc=$carriers['soluship_shipping1']['height_attribute'];
+$widthc=$carriers['soluship_shipping1']['width_attribute'];
+
             $items=$order->getAllVisibleItems();
             $i=0;
             $IO=array();
@@ -134,6 +143,11 @@ $storeId = Mage::app()->getStore()->getStoreId();
                     $IO[$i]['id']=$item->getProductId();
  
 
+ $cProduct = Mage::getModel('catalog/product')->load($item->getProductId()); 
+ Mage::log($cProduct[$lenghtc]);
+ $IO[$i]['length']=$cProduct[$lenghtc];
+$IO[$i]['height']=$cProduct[$heightc];
+$IO[$i]['width']=$cProduct[$widthc];
                     
                      //$cProduct = Mage::getModel('catalog/product');
 
@@ -158,7 +172,9 @@ $storeId = Mage::app()->getStore()->getStoreId();
                     {
                             $IO[$i]['shipping']=$order->getData('shipping_amount');
                             $IO[$i]['tax'] = $order->getData('tax_amount');
-                    }       
+                    }
+
+
                     $i++;
             }
  

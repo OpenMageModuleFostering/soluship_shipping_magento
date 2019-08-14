@@ -40,6 +40,11 @@ $request->store_email=Mage::getStoreConfig('trans_email');
 $request->soluship_setting=Mage::getStoreConfig('carriers');
 
 $request->cartItems =  Mage::getSingleton('checkout/session')->getQuote();  
+ $carriers=Mage::getStoreConfig('carriers');
+      $lenghtc=$carriers['soluship_shipping1']['length_attribute'];
+$heightc=$carriers['soluship_shipping1']['height_attribute'];
+$widthc=$carriers['soluship_shipping1']['width_attribute'];
+
 $new = array();
  
 $session = Mage::getSingleton('checkout/session');
@@ -47,14 +52,27 @@ $i=1;
 foreach ($session->getQuote()->getAllItems() as $item) {
 
   $new[$i]=$item->getData();
+ $pid=$item->getProductId();
+
+$cProduct = Mage::getModel('catalog/product')->load($item->getProductId()); 
+ Mage::log($cProduct[$lenghtc]);
+ $new[$i]['length']=$cProduct[$lenghtc];
+$new[$i]['height']=$cProduct[$heightc];
+$new[$i]['width']=$cProduct[$widthc];
+
 $i=$i+1;
-    
+   
 }
+
 $request->items=$new;
+
 $config = array();
 $json =json_encode($config);
 $request->weight_unit=$weight_unit;
+
+$request->dimension_unit=$dimension_unit;
 $json = Mage::helper('core')->jsonEncode($request);
+
 $client->setRawData($json, 'application/json');
  
 // print_r(json_encode(Mage::getStoreConfig('carriers')));

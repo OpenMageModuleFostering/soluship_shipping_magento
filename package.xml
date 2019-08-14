@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>soluship_shipping_magento</name>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <stability>stable</stability>
     <license uri="http://opensource.org/licenses/osl-3.0.php"> Magento community website is: OSL v3.0</license>
     <channel>community</channel>
@@ -24,11 +24,13 @@ CARRIERS WITH SOLUSHIP&#xD;
 create shipment by getting the predefined rates with respect to the shipment details provided by the customer, from various services such as UPS, DHL, PUROLATOR, FEDEX etc..,&#xD;
 There are some additional functionalities such as pick up request ,EDI import (where multiple shipments can be created by importing an edi file), Track and Search which makes the shipments user friendly.&#xD;
 *Merchants need not pay nothing for App usages. They will pay only for shipping orders in soluship.</description>
-    <notes>Multi store shipping functionality added</notes>
+    <notes>dimension based shipping enabled&#xD;
+shipping label bug fixes&#xD;
+</notes>
     <authors><author><name>selvaganesh</name><user>selva</user><email>ecommerce@justintegrateit.com</email></author></authors>
-    <date>2017-04-04</date>
-    <time>16:58:29</time>
-    <contents><target name="mageetc"><dir name="modules"><file name="Soluship_Shipping_Magento.xml" hash="1a18096cc7c20498f4309178bc94b75b"/></dir></target><target name="magecommunity"><dir name="Soluship"><dir name="Shipping1"><dir name="Helper"><dir name="Data"><file name="Data.php" hash="2e5fa7cb0c497b1394f42299f977e259"/></dir></dir><dir name="Model"><file name="Data.php" hash="2e5fa7cb0c497b1394f42299f977e259"/><file name="Demo.php" hash="9749d4b900fb902d8166a9efb909c74f"/><dir name="Dropdown"><file name="MarkupFlatOption.php" hash="c3dcad22ff96aefc5c0d8fb337b76e72"/><file name="MarkupType.php" hash="cd257aa3181386707781f56440411280"/><file name="Unitofmeasure.php" hash="40941ba42763a599ae6e2fc2f8410208"/></dir><file name="FreeShipOptions.php" hash="440c1e0121575e9f3cf2321831157eb8"/><file name="Observer.php" hash="bb81a845d4ab71521f3736b4fb42ff18"/><file name="Observer1.php" hash="59c279df024213af05750094d619207a"/><file name="Option.php" hash="8da2d8863b128b42344570b32d344622"/><file name="PackageOption.php" hash="5e20eeab541a8901af33bcd771e7fde9"/><dir name="Sales"><dir name="Order"><file name="Grid.php" hash="e908fb2554b19058b710b52d5fca9aa7"/><file name="View.php" hash="df76dc675e766233bf373cc3389ec102"/><file name="ViewTrack.php" hash="0180b81c41ea8345ac8b5f22280f8163"/></dir></dir><file name="Weightunit.php" hash="fa47f1ad50ae4f689a8ede921d9bd140"/><file name="printlabel.php" hash="feabe5cc691b088d6ade3e04d6b120fc"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="MassactionController.php" hash="715f6a5dc0b9362faf4e0cc7935db2a5"/></dir></dir><dir name="etc"><file name="config.xml" hash="44c53dcfd1247390dbb8c078aafa0df7"/><file name="system.xml" hash="65b565f91297f3125379ce2255567080"/></dir></dir></dir></target></contents>
+    <date>2017-04-28</date>
+    <time>10:51:43</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Soluship_Shipping_Magento.xml" hash="1a18096cc7c20498f4309178bc94b75b"/></dir></target><target name="magecommunity"><dir name="Soluship"><dir name="Shipping1"><dir name="Helper"><dir name="Data"><file name="Data.php" hash="2e5fa7cb0c497b1394f42299f977e259"/></dir></dir><dir name="Model"><file name="Data.php" hash="2e5fa7cb0c497b1394f42299f977e259"/><file name="Demo.php" hash="905d9ed0db62b4207c53fbda0e9486e7"/><file name="DimensionUnit.php" hash="9bc66802605620c4b71503d045517317"/><dir name="Dropdown"><file name="MarkupFlatOption.php" hash="c3dcad22ff96aefc5c0d8fb337b76e72"/><file name="MarkupType.php" hash="cd257aa3181386707781f56440411280"/><file name="Unitofmeasure.php" hash="40941ba42763a599ae6e2fc2f8410208"/></dir><file name="FreeShipOptions.php" hash="440c1e0121575e9f3cf2321831157eb8"/><file name="ListAttributes.php" hash="ca607f97314cff75cdeb155169288e7a"/><file name="Observer.php" hash="b9bf46f6809d86c4a1330b4452b6175b"/><file name="Observer1.php" hash="59c279df024213af05750094d619207a"/><file name="Option.php" hash="8da2d8863b128b42344570b32d344622"/><file name="PackageOption.php" hash="5e20eeab541a8901af33bcd771e7fde9"/><dir name="Sales"><dir name="Order"><file name="Grid.php" hash="e908fb2554b19058b710b52d5fca9aa7"/><file name="View.php" hash="df76dc675e766233bf373cc3389ec102"/><file name="ViewTrack.php" hash="0180b81c41ea8345ac8b5f22280f8163"/></dir></dir><file name="Weightunit.php" hash="fa47f1ad50ae4f689a8ede921d9bd140"/><file name="printlabel.php" hash="feabe5cc691b088d6ade3e04d6b120fc"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="MassactionController.php" hash="715f6a5dc0b9362faf4e0cc7935db2a5"/></dir></dir><dir name="etc"><file name="config.xml" hash="44c53dcfd1247390dbb8c078aafa0df7"/><file name="system.xml" hash="c24d9cba20645e75f31a77bd48cb8d35"/></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
 </package>
