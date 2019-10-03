@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/soluship_shipping_magento",
+    "name": "OpenMageModuleFostering\/soluship_shipping_magento",
     "type": "magento-module",
     "license": "Magento-community-website-is:-OSL-v3.0",
     "homepage": "",
     "description": " Soluship(SOLUtion based SHIPments) is a shipment based project in which service is made globally. Its FREE* to use.",
     "authors": [
-    {
-        "name": "selva ganesh",
-        "email": "selvaganesh26193@gmail.com"
-    }
-],
+        {
+            "name": "selva ganesh",
+            "email": "selvaganesh26193@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
